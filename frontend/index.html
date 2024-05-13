@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sistem Manajemen Infomasi Gempa Bumi</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+			crossorigin="anonymous"
+		/>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+			crossorigin="anonymous"
+		></script>
+	</head>
+	<body>
+		<h1 class="d-flex justify-content-center mt-4">
+			Sistem Manajemen Informasi Gempa Bumi
+		</h1>
+
+		<button
+			type="button"
+			class="btn btn-success ms-4 mt-2"
+			data-bs-toggle="modal"
+			data-bs-target="#createModal"
+			id="openCreateModal"
+		>
+			➕ Create New Data
+		</button>
+
+		<!-- Modal Create -->
+		<div
+			class="modal"
+			id="createModal"
+			tabindex="-1"
+			aria-labelledby="createModalLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="createModalLabel">Create New Data</h5>
+						<button
+							type="button"
+							class="btn-close"
+							data-bs-dismiss="modal"
+							aria-label="Close"
+						></button>
+					</div>
+					<div class="modal-body">
+						<form id="createEarthquakeForm">
+							<div class="mb-3">
+								<label for="locationCreateInput" class="form-label"
+									>Lokasi</label
+								>
+								<input
+									type="text"
+									class="form-control"
+									id="locationCreateInput"
+									placeholder="Masukkan lokasi"
+								/>
+							</div>
+							<div class="mb-3">
+								<label for="dateCreateInput" class="form-label">Tanggal</label>
+								<input
+									type="text"
+									class="form-control"
+									id="dateCreateInput"
+									placeholder="Masukkan tanggal"
+								/>
+							</div>
+							<div class="mb-3">
+								<label for="timeCreateInput" class="form-label">Waktu</label>
+								<input
+									type="text"
+									class="form-control"
+									id="timeCreateInput"
+									placeholder="Masukkan waktu"
+								/>
+							</div>
+							<div class="mb-3">
+								<label for="latitudeCreateInput" class="form-label"
+									>Lintang</label
+								>
+								<input
+									type="text"
+									class="form-control"
+									id="latitudeCreateInput"
+									placeholder="Masukkan garis lintang"
+								/>
+							</div>
+							<div class="mb-3">
+								<label for="longitudeCreateInput" class="form-label"
+									>Bujur</label
+								>
+								<input
+									type="text"
+									class="form-control"
+									id="longitudeCreateInput"
+									placeholder="Masukkan garis bujur"
+								/>
+							</div>
+							<div class="mb-3">
+								<label for="magnitudeCreateInput" class="form-label"
+									>Magnitudo</label
+								>
+								<input
+									type="text"
+									class="form-control"
+									id="magnitudeCreateInput"
+									placeholder="Masukkan magnitudo"
+								/>
+							</div>
+							<div class="mb-3">
+								<label for="depthCreateInput" class="form-label"
+									>Kedalaman</label
+								>
+								<input
+									type="text"
+									class="form-control"
+									id="depthCreateInput"
+									placeholder="Masukkan kedalaman"
+								/>
+							</div>
+							<div class="d-flex justify-content-end">
+								<button type="submit" class="btn btn-success" data-bs-dismiss="modal">Create</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Modal Create -->
+
+		<div class="m-4 mt-2" id="earthquakeCard">
+			<!-- Card dari main.js ada di sini -->
+		</div>
+
+		<!-- Modal Update -->
+		<div
+			class="modal"
+			id="updateModal"
+			tabindex="-1"
+			aria-labelledby="updateModalLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="updateModalLabel">
+							Update Data
+						</h5>
+						<button
+							type="button"
+							class="btn-close"
+							data-bs-dismiss="modal"
+							aria-label="Close"
+						></button>
+					</div>
+					<div class="modal-body">
+						<form id="updateEarthquakeForm">
+							<div class="mb-3">
+								<label for="idUpdateInput" class="form-label">_id</label>
+								<input
+									type="text"
+									class="form-control"
+									id="idUpdateInput"
+									placeholder="Masukkan id"
+								/>
+							</div>
+							<div class="mb-3">
+								<label for="locationUpdateInput" class="form-label"
+									>Lokasi</label
+								>
+								<input
+									type="text"
+									class="form-control"
+									id="locationUpdateInput"
+									placeholder="Masukkan lokasi"
+								/>
+							</div>
+							<div class="mb-3">
+								<label for="dateUpdateInput" class="form-label">Tanggal</label>
+								<input
+									type="text"
+									class="form-control"
+									id="dateUpdateInput"
+									placeholder="Masukkan tanggal"
+								/>
+							</div>
+							<div class="mb-3">
+								<label for="timeUpdateInput" class="form-label">Waktu</label>
+								<input
+									type="text"
+									class="form-control"
+									id="timeUpdateInput"
+									placeholder="Masukkan waktu"
+								/>
+							</div>
+							<div class="mb-3">
+								<label for="latitudeUpdateInput" class="form-label"
+									>Lintang</label
+								>
+								<input
+									type="text"
+									class="form-control"
+									id="latitudeUpdateInput"
+									placeholder="Masukkan garis lintang"
+								/>
+							</div>
+							<div class="mb-3">
+								<label for="longitudeUpdateInput" class="form-label"
+									>Bujur</label
+								>
+								<input
+									type="text"
+									class="form-control"
+									id="longitudeUpdateInput"
+									placeholder="Masukkan garis bujur"
+								/>
+							</div>
+							<div class="mb-3">
+								<label for="magnitudeUpdateInput" class="form-label"
+									>Magnitudo</label
+								>
+								<input
+									type="text"
+									class="form-control"
+									id="magnitudeUpdateInput"
+									placeholder="Masukkan magnitudo"
+								/>
+							</div>
+							<div class="mb-3">
+								<label for="depthUpdateInput" class="form-label"
+									>Kedalaman</label
+								>
+								<input
+									type="text"
+									class="form-control"
+									id="depthUpdateInput"
+									placeholder="Masukkan kedalaman"
+								/>
+							</div>
+							<div class="d-flex justify-content-end">
+								<button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Update</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Modal Update -->
+
+		<div
+			class="modal"
+			id="deleteModal"
+			tabindex="-1"
+			aria-labelledby="deleteModalLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="deleteModalLabel">
+							Delete Data
+						</h5>
+						<button
+							type="button"
+							class="btn-close"
+							data-bs-dismiss="modal"
+							aria-label="Close"
+						></button>
+					</div>
+					<div class="modal-body">
+						<form id="deleteEarthquakeForm">
+							<div class="mb-3">
+								<label for="idDeleteInput" class="form-label">Masukkan id untuk menghapus data</label>
+								<input
+									type="text"
+									class="form-control"
+									id="idDeleteInput"
+									placeholder="Masukkan id"
+								/>
+							</div>
+							<div class="d-flex justify-content-end">
+								<button
+									type="button"
+									class="btn btn-secondary me-2"
+									data-bs-dismiss="modal"
+								>
+									Cancel
+								</button>
+								<button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Delete</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="main.js"></script>
+	</body>
+</html>

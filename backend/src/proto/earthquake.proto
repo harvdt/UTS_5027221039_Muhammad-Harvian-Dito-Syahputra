@@ -1,0 +1,45 @@
+syntax = "proto3";
+package earthquakePackage;
+
+service EarthquakeService {
+  rpc CreateEarthquake (CreateEarthquake) returns (Response) {}
+  rpc GetEarthquake (EarthquakeID) returns (Earthquake) {}
+  rpc GetAllEarthquake (Empty) returns (EarthquakeList) {}
+  rpc UpdateEarthquake (Earthquake) returns (CreateEarthquake) {}
+  rpc DeleteEarthquake (EarthquakeID) returns (Empty) {}
+}
+
+message Empty {}
+
+message CreateEarthquake {
+  float magnitude = 1;
+  float depth = 2;
+  float latitude = 3;
+  float longitude = 4;
+  string location = 5;
+  string date = 6;
+  string time = 7;
+}
+
+message Earthquake {
+  float magnitude = 1;
+  float depth = 2;
+  float latitude = 3;
+  float longitude = 4;
+  string location = 5;
+  string date = 6;
+  string time = 7;
+  string _id = 8;
+}
+
+message EarthquakeList {
+  repeated Earthquake earthquakes = 1;
+}
+
+message EarthquakeID {
+  string id = 1;
+}
+
+message Response {
+  string status = 1;
+}
